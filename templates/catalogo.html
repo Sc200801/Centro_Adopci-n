@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Centro de Adopción de Perritos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Contenedor principal que ocupará toda la página -->
+    <div class="main-container">
+        <!-- Botón en esquina superior izquierda usando position absolute -->
+        <div class="top-right-button">
+            <a href="historial" class="btn">Ver adopciones</a>
+        </div>
+
+        <!-- Contenido centrado del catálogo -->
+        <div class="catalog-content">
+            <h1>Perritos en Catálogo</h1>
+            
+            <div class="grid-catalog">
+                {% for dog in dogs %}
+                <div class="dog-card">
+                    <h2>{{ dog.name }}</h2>
+                    <p><strong>Edad:</strong> {{ dog.age }} años</p>
+                    <p><strong>Raza:</strong> {{ dog.breed }}</p>
+                    <a href="/adoptar/{{ dog.id }}" class="btn">¡Adoptame!</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

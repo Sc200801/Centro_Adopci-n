@@ -1,0 +1,211 @@
+/* Importación de fuente más amigable y redondeada */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+/* Configuración General con Tonos Pastel */
+:root {
+    --primary-color: #7d5a5a;    /* Marrón suave rosáceo */
+    --accent-color: #ff8fa3;      /* Rosa intenso principal */
+    --hover-color: #ffb2c2;     /* Rosa pastel para hover*/
+    --success-color: #a8e6cf;    /* Verde menta suave */
+    --bg-color: #fff5f7;         /* Fondo crema rosado */
+    --text-color: #5d4a4a;       /* Gris cálido */
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Título con ícono decorativo (Paw Print) */
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+h1::before, h1::after {
+    content: '🐾'; /* Icono de huellita */
+    font-size: 0.8em;
+    margin: 0 15px;
+    opacity: 0.6;
+}
+
+/* Contenedor Principal */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px; /* Bordes más redondeados */
+    box-shadow: 0 8px 25px rgba(255, 183, 197, 0.2); /* Sombra rosada sutil */
+}
+
+.top-right-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+/* Catálogo de Perritos (Cards) */
+/* --- Ajustes para el Catálogo Horizontal --- */
+
+/* Asegúrate de que tus tarjetas estén dentro de un <div class="grid-catalog"> */
+.grid-catalog {
+    display: grid;
+    /* Esto crea columnas de mínimo 280px. Si no caben, saltan abajo automáticamente */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 25px;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.dog-card {
+    background: #fff;
+    border: 2px solid #ffe4e8;
+    border-radius: 25px; /* Un poco más redondito */
+    padding: 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Alinea el botón abajo si el texto varía */
+    min-height: 300px; /* Altura uniforme para que todas se vean iguales */
+    box-shadow: 0 4px 15px rgba(255, 183, 197, 0.1);
+}
+
+/* El emoticón ahora flotará más lindo arriba a la derecha */
+.dog-card::before {
+    content: '(U ^ᴥ^ U)';
+    display: block;
+    font-size: 1rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Estilo para los textos internos de la card */
+.dog-card h3 {
+    margin: 10px 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.dog-card p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+
+/* Para que el botón de arriba esté centrado */
+.container > .btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 30px auto; /* Centrado horizontal y espacio abajo */
+}
+
+/* --- Mantenemos el resto de tu estilo pastel --- */
+
+/* Botones con estilo "Pill" */
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px; /* Estilo píldora */
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 183, 197, 0.4);
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 183, 197, 0.5);
+}
+
+/* Tablas con bordes suaves */
+/* Tablas con bordes suaves y divisiones claras */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #ffe4e8; /* Borde exterior más definido */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+th {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3); /* División blanca sutil en el header */
+}
+
+th:last-child {
+    border-right: none;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #ffe4e8;
+    border-right: 1px solid #fff0f2; /* División lateral muy suave entre columnas */
+    background-color: white;
+    text-align: center; /* Centramos para que se vea más ordenado */
+}
+
+td:last-child {
+    border-right: none; /* Quitamos la línea en la última columna */
+}
+
+/* Rayado de cebra (Zebra Stripes) */
+/* Esto hace que las filas pares tengan un color diferente para no perder la vista */
+tr:nth-child(even) td {
+    background-color: #fff9fa; 
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Resaltado al pasar el mouse (Hover) */
+tr:hover td {
+    background-color: #ffe4e8 !important; /* Rosa más notable al posarse */
+    transition: background-color 0.2s ease;
+}
+
+/* Formularios más limpios */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+input[type="text"], input[type="number"], input[type="email"] {
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: #fffcfd;
+}

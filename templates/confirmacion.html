@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+    {% if error %}
+<div id="error-message" style="background-color: #fce4e4; border: 1px solid #fcc2c2; color: #cc0033; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-family: sans-serif; transition: opacity 0.5s ease;">
+    <strong>⚠️ Nota:</strong> {{ error }}
+</div>
+{% endif %}
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Adopción</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Estás a punto de adoptar a {{ dog.name }}</h1>
+    <center>
+    <p>{{ dog.name }} es un {{ dog.breed }} de {{ dog.age }} años.</p></center>
+    
+    <center><h3>Tus Datos (Adoptante):</h3></center>
+    <form action="/confirmar_adopcion" method="POST">
+        <input type="hidden" name="dog_id" value="{{ dog.id }}">
+        
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="lastname">Apellido:</label>
+        <input type="text" id="lastname" name="lastname" required><br><br>
+        
+        <label for="id_card">Cédula/ID (String en el diagrama):</label>
+        <input type="text" id="id_card" name="id_card" required><br><br>
+        
+        <label for="address">Dirección (Detalle de Adopter):</label>
+        <input type="text" id="address" name="address" required><br><br>
+        
+        <input type="submit" value="Confirmar Adopción" class="btn">
+    </form>
+<script>
+    // Esperamos a que el contenido cargue
+    document.addEventListener('DOMContentLoaded', function() {
+        const errorDiv = document.getElementById('error-message');
+        
+        if (errorDiv) {
+            // Espera 4000 milisegundos (4 segundos) y luego actúa
+            setTimeout(function() {
+                errorDiv.style.opacity = '0'; // Se vuelve invisible
+                
+                // Después de la animación (0.5s), lo eliminamos del espacio físico
+                setTimeout(function() {
+                    errorDiv.style.display = 'none';
+                }, 500);
+                
+            }, 4000); 
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Historial de Adopciones</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Adoptante</th>
+                <th>Perrito</th>
+                <th>Raza</th>
+                <th>Fecha</th>
+            </tr>
+            <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        </thead>
+        <tbody>
+            {% for registro in adopciones %}
+            <tr>
+                <td>{{ registro[0] }} {{ registro[1] }}</td>
+                <td>{{ registro[2] }}</td>
+                <td>{{ registro[3] }}</td>
+                <td>{{ registro[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/" class="btn">Volver al catálogo</a>
+</div>

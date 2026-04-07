@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¡Adopción Exitosa!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container" style="text-align: center; margin-top: 50px;">
+        <h1>¡Felicidades!</h1> <div class="dog-card" style="max-width: 500px; margin: 20px auto; min-height: auto;">
+            <p style="font-size: 1.2rem;">
+                Has adoptado a <strong>{{ dog_name }}</strong> exitosamente.
+            </p>
+            <p>Gracias por darle una segunda oportunidad y un hogar lleno de amor. (づᴗ _ᴗ)づ♡</p>
+        </div>
+
+        <br>
+        <a href="{{ url_for('index') }}" class="btn">Volver al catálogo</a>
+    </div>
+</body>
+</html>
