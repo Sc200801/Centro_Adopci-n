@@ -24,7 +24,7 @@ El proyecto permite al usuario a través de una página web adoptar a perritos d
 
 #Tecnologías
 -**Frontend:** Flask
--**Backedn:** Visual Studio Code, MySQL, Html, Css, Python 3
+-**Backend:** Visual Studio Code, MySQL, Html, Css, Python 3
 
 #Uso
 
